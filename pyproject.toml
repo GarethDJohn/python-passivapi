@@ -29,9 +29,9 @@ dependencies = [
 dynamic = ["version"]
 
 [project.urls]
-Documentation = "https://github.com/unknown/passivapi#readme"
-Issues = "https://github.com/unknown/passivapi/issues"
-Source = "https://github.com/unknown/passivapi"
+Documentation = "https://github.com/GarethDJohn/python-passivapi#readme"
+Issues = "https://github.com/GarethDJohn/python-passivapi/issues"
+Source = "https://github.com/GarethDJohn/python-passivapi"
 
 [tool.hatch.version]
 path = "passivapi/__about__.py"
