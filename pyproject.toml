@@ -1,5 +1,5 @@
 [build-system]
-requires = ["hatchling"]
+requires = ["hatchling", "hatch-vcs"]
 build-backend = "hatchling.build"
 
 [project]
@@ -34,7 +34,10 @@ Issues = "https://github.com/GarethDJohn/python-passivapi/issues"
 Source = "https://github.com/GarethDJohn/python-passivapi"
 
 [tool.hatch.version]
-path = "passivapi/__about__.py"
+source = "vcs"
+
+[tool.hatch.build.hooks.vcs]
+version-file = "passivapi/__about__.py"
 
 [tool.hatch.envs.default]
 dependencies = [
@@ -42,6 +45,7 @@ dependencies = [
   "pytest-cov",
   "requests-mock",
 ]
+
 [tool.hatch.envs.default.scripts]
 cov = "pytest --cov-report=term-missing --cov-config=pyproject.toml --cov=passivapi --cov=tests"
 no-cov = "cov --no-cov"
