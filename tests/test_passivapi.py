@@ -4,6 +4,10 @@ import requests_mock
 from passivapi.passivapi import PassivApi
 
 
+def test_class_instantiation():
+    PassivApi()
+
+
 def test_login():
     with requests_mock.Mocker() as m:
         mock_token = {
@@ -12,7 +16,8 @@ def test_login():
             "expires_in": 26002376,
         }
         m.post("https://www.passivliving.com/oauth/token", json=mock_token)
-        PassivApi("some_user", "some_password")
+        p = PassivApi("some_user", "some_password")
+        p.login()
 
 
 def test_get_heating():
@@ -31,7 +36,7 @@ def test_get_heating():
         )
 
         p = PassivApi("some_user", "some_password")
-
+        p.login()
         h = p.get_heating()
 
         assert h == mock_heating
